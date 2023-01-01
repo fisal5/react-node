@@ -6,6 +6,7 @@ import Quiz from "./Pages/Quiz";
 import Demo from "./Pages/Demo";
 import Errorpage from "./Pages/Errorpage";
 import Header from "./common/Header/Header";
+import Quizpage from "./quiz/quiz-page";
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/Demo" element={<Demo />} />
-            <Route path="/Quiz" element={<Quiz />} />
+            <Route path="/Quiz" element={<Quizpage />} />
             <Route path="*" element={<Errorpage />} />
 
           </Routes>
