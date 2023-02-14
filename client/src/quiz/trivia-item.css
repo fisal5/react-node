@@ -1,11 +1,11 @@
-.trivia-item__qustion {
+.trivia-item__question {
     text-align: center;
     font-size: 2rem;
 }
 
 .trivia-item__answers {
     display: grid;
-    grid-template-columns: 1fr 1 fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     list-style: none;
     padding: 0;
