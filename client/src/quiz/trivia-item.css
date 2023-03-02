@@ -45,3 +45,19 @@
  background: #2828a3;
  transform: rotate(2deg) scale(1.02);
 }
+
+.trivia-item__button:focus {
+    border-color: black;
+}
+
+.trivia-item__button.trivia-item__button--disabled {
+    background: #c3c3d8;
+}
+
+.trivia-item__button.trivia-item__button--correct {
+    background: #27bd26;
+}
+
+.trivia-item__button.trivia-item__button--incorrect{
+    background: #c02626;
+}

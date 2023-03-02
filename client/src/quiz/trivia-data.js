@@ -1,4 +1,6 @@
-let triviadata = [
+import he from "he";
+
+let triviaData = [
     {
         category:"Entertainment:Board Games",
         type:"multiple",
@@ -20,8 +22,8 @@ let triviadata = [
         type: "multiple",
         difficulty:"hard",
         question:"what is the world&#039;s oldest board game?",
-        correct_answer:"Senet",
-        incorrect_answers:["Chess", "Checkers", "Go"],
+        correct_answer:"Senet&#039;",
+        incorrect_answers:["Chess", "Checkers&#039;", "Go"],
     },
     {
         category:"Entertainment:Board Games",
@@ -90,4 +92,15 @@ let triviadata = [
 
     },
 ];
-export default triviadata;
+
+// This operation should be done when we retrieve our trivia  data from the server.
+triviaData = triviaData.map((item) => {
+    return {
+        ...item,
+        question: he.decode(item.question),
+        correct_answer: he.decode(item.correct_answer),
+        incorrect_answers: item.incorrect_answers.map(incorrect => he.decode(incorrect)),
+    };
+});
+export default triviaData;
+

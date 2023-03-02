@@ -23,14 +23,24 @@ function Game() {
       triviaIndex: 0,
       isGameOver: false,
 
-    })
+    });
   };
 
   const onLoadNextQuestion = () => {
-    setGameState({
-      ...gameState,
-      triviaIndex: triviaIndex + 1,
-    });
+    if (triviaIndex >= triviaData.length - 1){
+      setGameState({ ...gameState, isGameOver: true });
+    } else {
+      setGameState({...gameState, triviaIndex: triviaIndex + 1 });
+    }
+  };
+
+  const onAnswerSelected = (wasPlayerCorrect) => {
+    if (wasPlayerCorrect) {
+      setGameState({
+        ...gameState,
+        score: score + 1,
+      });
+    }
   };
 
   let pageContent;
@@ -41,10 +51,12 @@ function Game() {
     const{correct_answer, incorrect_answers, question} = triviaQuestion; //to understand this line see vidoe 17 Unique coderz academy (React list data map)
     pageContent = (
       <TriviaItem 
+        key={triviaIndex}
         question={question}
         correctAnswer={correct_answer}
         incorrectAnswers={incorrect_answers}
         onNextClick={onLoadNextQuestion}
+        onAnswerSelected={onAnswerSelected}
         
       />
     );
